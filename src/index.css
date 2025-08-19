@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'lateefBold';
+    src: url('../public/font/Lateef-Bold.ttf');
+  }
+  @font-face {
+    font-family: 'lateefRegular';
+    src: url('../public/font/Lateef-Regular.ttf');
+  }
+}
