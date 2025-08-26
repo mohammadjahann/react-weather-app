@@ -1,14 +1,56 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Loading from "./Components/loading/Loading";
+
+import Left from "./Components/Left/Left";
 import './App.css';
 
 function App() {
 
+
   const [darkMode, setDarkMode] = useState(false)
+  const [cityName, setCityName] = useState('گرگان')
+  const [todayData, setTodayData] = useState(null);
+  const [isLoading,setIsLoading] = useState(true)
+  const APIKey = 'aaf1faa8cdc04aa8babed5b25601ded5'
+
+  useEffect(() => {
+    fetch(`https://api.weatherbit.io/v2.0/forecast/daily?city=${cityName}&days=8&key=${APIKey}&lang=fa&units=M`)
+      .then(res => res.json())
+      .then(data => {
+        setTimeout(() => {
+          setTodayData(data)
+        }, 2000)
+      })
+      .then(()=>{
+        setTimeout(()=>{
+          setIsLoading(false)
+        },2000)
+      })
+      .catch(err => console.log(err))
+
+      
+      
+
+  
+  }, [cityName])
+
+  const darkModeHandler = data => {
+    setDarkMode(data)
+
+  }
+
+  const SearchHandler = (name)=>{
+    
+    setCityName(name)
+    setIsLoading(true)
+    
+  }
+
 
   return (
     <div className={`
       ${darkMode ? "dark" : ""}
-      h-screen w-full flex justify-center items-center
+      w-full md:h-screen flex justify-center items-center
     `}>
 
       {/* backgroud for both modes using Tailwind's dark: utility */}
@@ -24,21 +66,30 @@ function App() {
           dark:bg-[rgba(0,0,0,0.35)] dark:border-[rgba(255,255,255,0.2)]
         ">
 
-          {/* left */}
+          {/* left / Top */}
           <div className="
-              w-[25%] h-screen border-r border-[rgba(255,255,255,0.3)]
+              w-full h-screen md:w-[30%] border-r border-[rgba(255,255,255,0.3)]
               bg-[rgba(255,255,255,0.25)] backdrop-blur-lg
               dark:bg-[rgba(0,0,0,0.25)] dark:border-[rgba(255,255,255,0.2)]
             ">
+            <Left darkModeHandler={darkModeHandler} todayData={todayData} SearchHandler={SearchHandler} />
           </div>
 
           {/* right */}
-          <div>
+          <div className='
+           w-full h-screen
+          '>
           </div>
+
+          {/* loading modal */}
+
+          
+            {isLoading ? <Loading/> :<></>}
+          
 
         </div>
 
-       
+
       </div>
 
     </div>
