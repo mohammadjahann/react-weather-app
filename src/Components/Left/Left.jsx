@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { waetherIcons, countryTranslations, weatherTranslations } from '../../data';
+import { dateHandler } from '../../functions';
 import JDate from 'jalali-date';
 import Loading from '../loading/Loading';
 
@@ -23,22 +24,24 @@ export default function Left({ darkModeHandler, todayData , SearchHandler }) {
             setWaether(todayData.data[0].weather.description)
             setTemp(todayData.data[0].temp)
 
-            const gDate = new Date(todayData.data[0].datetime);
-            const jdate = new JDate(gDate);
+            // const gDate = new Date(todayData.data[0].datetime);
+            // const jdate = new JDate(gDate);
 
-            const days = ["یکشنبه", "دوشنبه", "سه‌شنبه", "چهارشنبه", "پنج‌شنبه", "جمعه", "شنبه"];
-            const months = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
+            // const days = ["یکشنبه", "دوشنبه", "سه‌شنبه", "چهارشنبه", "پنج‌شنبه", "جمعه", "شنبه"];
+            // const months = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
 
-            const dayName = days[jdate.getDay()];
-            const day = jdate.getDate();
+            // const dayName = days[jdate.getDay()];
+            // const day = jdate.getDate();
 
-            // کم کردن یک ماه به صورت دستی
-            let monthIndex = jdate.getMonth() - 1;
-            if (monthIndex < 0) {
-                monthIndex = 11; // اگر ماه منفی شد، یعنی اسفند سال قبل
-            }
-            const month = months[monthIndex];
-            const year = jdate.getFullYear();
+            // // کم کردن یک ماه به صورت دستی
+            // let monthIndex = jdate.getMonth() - 1;
+            // if (monthIndex < 0) {
+            //     monthIndex = 11; // اگر ماه منفی شد، یعنی اسفند سال قبل
+            // }
+            // const month = months[monthIndex];
+            // const year = jdate.getFullYear();
+
+            const {dayName,day,month,year} = dateHandler(todayData.data[0].datetime)
 
             setDateInfo(`${dayName}، ${day} ${month} ${year}`)
         }
