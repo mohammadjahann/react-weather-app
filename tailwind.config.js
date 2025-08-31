@@ -9,7 +9,11 @@ module.exports = {
       'lateefBold':'lateefBold',
       'lateefRegular':'lateefRegular'
     },
-    extend: {},
+    extend: {
+      screens : {
+        'esm': '364px'
+      }
+    },
   },
   plugins: [],
 }

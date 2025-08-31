@@ -10,7 +10,7 @@ function App() {
 
 
   const [darkMode, setDarkMode] = useState(false)
-  const [cityName, setCityName] = useState('paris')
+  const [cityName, setCityName] = useState('new mexico')
   const [todayData, setTodayData] = useState(null);
   const [isLoading, setIsLoading] = useState(true)
   const APIKey = 'aaf1faa8cdc04aa8babed5b25601ded5'
@@ -43,7 +43,7 @@ function App() {
   }
 
   const SearchHandler = (name) => {
-    setTodayData(null)
+    
     setCityName(name)
     setIsLoading(true)
 
@@ -100,3 +100,8 @@ function App() {
 }
 
 export default App;
+{/* <div className="w-[300px] h-[170px] p-4bg-[rgba(255,255,255,0.25)] backdrop-blur-md
+      border border-[rgba(255,255,255,0.3)]
+      dark:bg-[rgba(0,0,0,0.35)] dark:border-[rgba(255,255,255,0.2)]
+      transition-all duration-300 hover:scale-105 hover:shadow-xl rounded-xl
+       shadow flex flex-col items-center mt-4"></div> */}
