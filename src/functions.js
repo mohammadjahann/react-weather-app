@@ -19,10 +19,19 @@ const dateHandler = (date) => {
     const month = months[monthIndex];
     const year = jdate.getFullYear();
 
-    return {dayName , day ,month , year }
+    return { dayName, day, month, year }
 
 
 }
 
+function formatTime(unixTimestamp) {
+    const date = new Date(unixTimestamp * 1000);
+    return date.toLocaleTimeString("fa-IR", {
+        hour: "2-digit",
+        minute: "2-digit",
 
-export {dateHandler}
+    });
+}
+
+
+export { dateHandler, formatTime }

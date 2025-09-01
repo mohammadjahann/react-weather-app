@@ -61,6 +61,9 @@ let waetherIcons = {
   'c03n': './img/icons/20-Broken-Clouds.png',
   'c04d': './img/icons/21-Overcast-Cloud.png',
   'c04n': './img/icons/21-Overcast-Cloud.png',
+  'good': './img/icons/27-good.png',
+  'mid': './img/icons/28-mid.png',
+  'bad': './img/icons/29-bad.png',
 
 
 }

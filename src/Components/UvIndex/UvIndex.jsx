@@ -51,10 +51,10 @@ export default function UvIndex({ todayData }) {
   ];
 
   return (
-    <div className=" w-[100px] h-[130px] esm:h-[170px] esm:justify-center sm:w-[160px] md:w-[120px] lg:w-[200px] xl:w-[300px] p-4  
-    bg-[rgba(255,255,255,0.25)] backdrop-blur-md border border-[rgba(255,255,255,0.3)]
-      dark:bg-[rgba(0,0,0,0.35)] dark:border-[rgba(255,255,255,0.2)] transition-all duration-300 hover:scale-105 
-      hover:shadow-xl rounded-2xl shadow flex flex-col items-center mt-3">
+    <div className=" w-[100px] h-[130px] flex flex-col items-center  esm:h-[170px] esm:justify-center  sm:w-[160px] md:w-[120px]
+         lg:w-[200px] xl:w-[300px] p-4bg-[rgba(255,255,255,0.25)] backdrop-blur-md border border-[rgba(255,255,255,0.3)]
+        dark:bg-[rgba(0,0,0,0.35)] dark:border-[rgba(255,255,255,0.2)] transition-all duration-300 hover:scale-105 
+         hover:shadow-xl rounded-2xl shadow mt-3">
       <p className="text-gray-600 mb-2 text-[10px] md:text-[15px] dark:text-slate-200">UV شاخص</p>
 
       

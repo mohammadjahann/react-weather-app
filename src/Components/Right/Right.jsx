@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import DayBox from '../DayBox/DayBox'
 import UvIndex from '../UvIndex/UvIndex'
 import WindStatus from '../WindStatus/WindStatus'
+import SunCalc from '../sunCalc/sunCalc'
+import HumidityBox from '../HumidityBox/HumidityBox'
 
 
 export default function Right({ todayData }) {
@@ -36,8 +38,8 @@ export default function Right({ todayData }) {
                     <div className=' px-4 h-full w-full flex flex-wrap items-center justify-around'>
                         <UvIndex todayData={todayData}/>
                         <WindStatus todayData={todayData}/>
-                        <UvIndex todayData={todayData}/>
-                        <UvIndex todayData={todayData}/>
+                        <SunCalc todayData={todayData}/>
+                        <HumidityBox todayData={todayData}/>
                         <UvIndex todayData={todayData}/>
                         <UvIndex todayData={todayData}/>
                     </div>
