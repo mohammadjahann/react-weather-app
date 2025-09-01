@@ -4,6 +4,8 @@ import UvIndex from '../UvIndex/UvIndex'
 import WindStatus from '../WindStatus/WindStatus'
 import SunCalc from '../sunCalc/sunCalc'
 import HumidityBox from '../HumidityBox/HumidityBox'
+import VisibilityBox from '../VisibilityBox/VisibilityBox'
+import AirQuality from '../AirQuality/AirQuality'
 
 
 export default function Right({ todayData }) {
@@ -40,8 +42,8 @@ export default function Right({ todayData }) {
                         <WindStatus todayData={todayData}/>
                         <SunCalc todayData={todayData}/>
                         <HumidityBox todayData={todayData}/>
-                        <UvIndex todayData={todayData}/>
-                        <UvIndex todayData={todayData}/>
+                        <VisibilityBox todayData={todayData}/>
+                        <AirQuality todayData={todayData}/>
                     </div>
                 </div>
             ) : <div>data is loading</div>}

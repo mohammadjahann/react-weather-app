@@ -10,7 +10,7 @@ export default function HumidityBox({ todayData }) {
   useEffect(() => {
     if (todayData) {
       const humidity = todayData.data[0].rh
-      console.log(humidity);
+      
       setHumidity(humidity)
 
       if (humidity < 50) {

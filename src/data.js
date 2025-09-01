@@ -64,7 +64,11 @@ let waetherIcons = {
   'good': './img/icons/27-good.png',
   'mid': './img/icons/28-mid.png',
   'bad': './img/icons/29-bad.png',
-
+  'good-vis': './img/icons/31-good-vis.png',
+  'mid-vis': './img/icons/31-mid-vis.png',
+  'bad-vis': './img/icons/33-bad-vis.png',
+  'hard-vis': './img/icons/34-hard-vis.png',
+  
 
 }
 const countryTranslations = {
