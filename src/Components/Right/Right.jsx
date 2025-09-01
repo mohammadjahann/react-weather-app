@@ -36,7 +36,7 @@ export default function Right({ todayData }) {
                         })}
                     </div>
                     {/* daily report */}
-                    <p className='m-2'> : وضعیت آب و هوای هفته پیش رو</p> 
+                    <p className='m-2'> : شاخص های مهم امروز</p> 
                     <div className=' px-4 h-full w-full flex flex-wrap items-center justify-around'>
                         <UvIndex todayData={todayData}/>
                         <WindStatus todayData={todayData}/>

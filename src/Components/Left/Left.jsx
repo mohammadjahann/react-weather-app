@@ -26,7 +26,7 @@ export default function Left({ darkModeHandler, todayData, SearchHandler }) {
             setTemp(todayData.data[0].temp)
             const { dayName, day, month, year } = dateHandler(todayData.data[0].datetime)
             setDateInfo(`${dayName}، ${day} ${month} ${year}`)
-            console.log(todayData);
+            
 
         }
     }, [todayData]);
@@ -45,6 +45,14 @@ export default function Left({ darkModeHandler, todayData, SearchHandler }) {
 
     }
 
+    const enterHandler= e => {
+        if (e.keyCode === 13){
+            searchBtnHandler(e)
+            
+        }
+        
+    }
+
     return (
         <div className='flex flex-col items-center p-4 w-full h-screen'>
             <div className='flex items-center flex-row-reverse justify-between p-1 md:p-4 w-full'>
@@ -54,6 +62,7 @@ export default function Left({ darkModeHandler, todayData, SearchHandler }) {
 
                 <div className="relative w-[80%] sm:w-[50%] lg:w-[75%]">
                     <input
+                        onKeyUp={enterHandler}
                         onChange={inputHandler}
                         className="w-full px-4 py-1 pr-10 text-center dark:text-white rounded-3xl dark:bg-[rgba(87,81,81,0.35)] outline-none"
                         type="text"
@@ -66,7 +75,7 @@ export default function Left({ darkModeHandler, todayData, SearchHandler }) {
                     >
                         🔍
                     </button>
-                    
+
                 </div>
             </div>
 

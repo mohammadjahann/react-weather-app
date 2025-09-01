@@ -2,8 +2,12 @@ import React from 'react'
 
 export default function Loading() {
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50
-      bg-white/50 backdrop-blur-xl">
+    <div className="fixed inset-0 flex 
+    items-start sm:items-center 
+    justify-center sm:justify-center
+    pt-28 sm:pt-0
+    z-50 bg-white/50 backdrop-blur-xl">
+
 
       {/* لودینگ خودمون */}
       <div className='flex items-center justify-center
