@@ -8,7 +8,6 @@ export default function Loading() {
     pt-28 sm:pt-0
     z-50 bg-white/50 backdrop-blur-xl">
 
-
       {/* لودینگ خودمون */}
       <div className='flex items-center justify-center
         shadow-[25px_25px_51px_#93adc8,-25px_-25px_51px_#c7e9ff] 
@@ -20,6 +19,5 @@ export default function Loading() {
       </div>
 
     </div>
-
   )
 }

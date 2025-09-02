@@ -64,7 +64,7 @@ export default function AirQuality({ todayData }) {
                         <div className={`w-4 h-4 rounded-full border-none border-[1px] ${status.color} absolute left-1/2 -translate-x-1/2 transition-all duration-500`}
                         style={{ bottom: `${toPercent(airQuality)}%` }}></div>
                     </div>
-                    <p>{status.label}</p>
+                    <p className=' hidden esm:block'>{status.label}</p>
                 </div>
             ) : (
                 <div className='loader'></div>

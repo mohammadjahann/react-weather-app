@@ -26,41 +26,31 @@ export default function Left({ darkModeHandler, todayData, SearchHandler }) {
             setTemp(todayData.data[0].temp)
             const { dayName, day, month, year } = dateHandler(todayData.data[0].datetime)
             setDateInfo(`${dayName}، ${day} ${month} ${year}`)
-            
-
         }
     }, [todayData]);
 
     const inputHandler = e => {
-
         setInputValue(e.target.value)
-
-
-
     }
 
     const searchBtnHandler = e => {
         SearchHandler(inputValue)
         setInputValue('')
-
     }
 
-    const enterHandler= e => {
-        if (e.keyCode === 13){
+    const enterHandler = e => {
+        if (e.keyCode === 13) {
             searchBtnHandler(e)
-            
         }
-        
     }
 
     return (
-        <div className='flex flex-col items-center p-4 w-full h-screen'>
+        <div className='flex flex-col items-center p-4 w-full h-full'>
             <div className='flex items-center flex-row-reverse justify-between p-1 md:p-4 w-full'>
                 <button onClick={darkModeBtn} className="px-4 py-1 rounded-full text-white bg-blue-600 dark:bg-gray-700">
                     <img className='min-w-7 max-w-7' src={darkMode ? './img/dark-mode/sun.png' : './img/dark-mode/moon.png'} alt="" />
                 </button>
-
-                <div className="relative w-[80%] sm:w-[50%] lg:w-[75%]">
+                <div className="relative w-3/4 sm:w-1/2 lg:w-3/4">
                     <input
                         onKeyUp={enterHandler}
                         onChange={inputHandler}
@@ -75,39 +65,34 @@ export default function Left({ darkModeHandler, todayData, SearchHandler }) {
                     >
                         🔍
                     </button>
-
                 </div>
             </div>
 
             {todayData ? (
-                <div className='flex flex-col items-center justify-between h-full md:h-0'>
+                <div className='flex flex-col items-center flex-grow justify-between w-full py-4'>
                     <p className='text-slate-800 dark:text-slate-200 font-bold text-2xl'>
                         {countryTranslations[todayData.country_code]} / {todayData.city_name}
                     </p>
                     <p className='text-slate-800 dark:text-slate-200'>{dateInfo}</p>
                     <p className='text-slate-800 dark:text-slate-200'>: وضعیت کلی اب و هوا</p>
-
-                    <img className='w-[200px] mt-[1.5rem]' src={waetherIcons[icon]} alt="" />
-
-                    <p className='text-slate-800 dark:text-slate-200 mt-[10px] font-semibold text-xl'>
+                    <img className='max-w-[150px] md:max-w-[200px] my-4' src={waetherIcons[icon]} alt="" />
+                    <p className='text-slate-800 dark:text-slate-200 my-2 font-semibold text-xl'>
                         {weatherTranslations[waether]}
                     </p>
-                    <p className='text-slate-800 dark:text-slate-200 mt-5 md:mt-[45px] font-bold text-6xl'>{temp}&deg;<sup>C</sup></p>
-                    <div className='flex flex-col items-center'>
-                        <div className=' w-[130%] mt-2 md:hidden h-[1px] bg-slate-800 dark:bg-slate-200'></div>
-                        <div className=' mt-2 md:hidden'>
-                            <p className=' text-slate-800 dark:text-slate-200 text-center'>مختصات</p>
-                            <p className=' text-slate-800 dark:text-slate-200'>Lat : {todayData.lat}</p>
-                            <p className=' text-slate-800 dark:text-slate-200'>Lon : {todayData.lon}</p>
-                            <p className=' text-slate-800 dark:text-slate-200'>TimeZone : {todayData.timezone}</p>
+                    <p className='text-slate-800 dark:text-slate-200 my-5 md:my-10 font-bold text-5xl md:text-6xl'>{temp}&deg;<sup>C</sup></p>
+                    <div className='flex flex-col items-center w-full'>
+                        <div className='w-full max-w-xs mt-2 md:hidden h-[1px] bg-slate-800 dark:bg-slate-200'></div>
+                        <div className='mt-2 md:hidden'>
+                            <p className='text-slate-800 dark:text-slate-200 text-center'>مختصات</p>
+                            <p className='text-slate-800 dark:text-slate-200'>Lat : {todayData.lat}</p>
+                            <p className='text-slate-800 dark:text-slate-200'>Lon : {todayData.lon}</p>
+                            <p className='text-slate-800 dark:text-slate-200'>TimeZone : {todayData.timezone}</p>
                         </div>
                     </div>
-
                 </div>
             ) : (
-                <div className=''>
-
-
+                <div className='w-full h-full flex items-center justify-center'>
+                    <Loading />
                 </div>
             )}
         </div>
